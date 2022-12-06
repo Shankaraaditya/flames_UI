@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flames_assignment/messege.dart';
 import 'package:flames_assignment/status.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -17,26 +19,33 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        toolbarHeight: 60,
+        toolbarHeight: 75,
         elevation: 0,
         title: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(0.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CircleAvatar(
                 // backgroundColor: Colors.yellow,
-                radius: 25,
+                radius: 30,
                 // // backgroundImage: Image(image: AssetImage('images/profile.jpg')),
                 // foregroundImage: Image(image: AssetImage('images/profile.jpg')),
                 backgroundImage: AssetImage('assets/images/profile.jpg'),
               ),
               Text(
                 'Puzzles',
-                style: TextStyle(color: Colors.redAccent, fontSize: 30),
+                style: GoogleFonts.nunito(
+                  color: Colors.pinkAccent,
+                  fontSize: 30,
+                ),
               ),
               IconButton(
-                icon: Icon(Icons.settings, color: Colors.black),
+                // icon: Icon(Icons.settings, color: Colors.black),
+                icon: FaIcon(
+                  FontAwesomeIcons.houseLaptop,
+                  color: Colors.black,
+                ),
                 onPressed: () {},
               ),
             ],
@@ -84,18 +93,23 @@ class _HomePageState extends State<HomePage> {
                           filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                           child: Center(
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                            '20 Likes',
-                            style: TextStyle(
-                                    color: Colors.grey,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.favorite,
+                                color: Colors.white60,
+                                size: 25,
+                              ),
+                              Text(
+                                '20',
+                                style: TextStyle(
+                                    color: Colors.white60,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 18),
-                          ),
-                          Icon(Icons.favorite_border_sharp, color: Colors.grey,)
-                                ],
-                              ))),
+                              ),
+                            ],
+                          ))),
                     ),
                     Container(
                       height: 20,
@@ -113,10 +127,9 @@ class _HomePageState extends State<HomePage> {
                   ]),
                 ),
                 // ===============================LIKE===========================================
-                
 
                 Status(
-                  name: 'Likes',
+                  name: 'Thor',
                   pic: 'james',
                 ),
 
@@ -145,13 +158,19 @@ class _HomePageState extends State<HomePage> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 25, right: 25),
-            child: TextFormField(
-              decoration: InputDecoration(
-                hintText: 'Search',
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(
-                    borderSide: BorderSide(width: 70),
-                    borderRadius: BorderRadius.circular(30)),
+            child: Container(
+              height: 45,
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: 'Search',
+                  prefixIcon: Icon(
+                    Icons.search,
+                    size: 30,
+                  ),
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(width: 80),
+                      borderRadius: BorderRadius.circular(30)),
+                ),
               ),
             ),
           ),
@@ -170,6 +189,7 @@ class _HomePageState extends State<HomePage> {
                   read: false,
                   img: 'james',
                   time: '01:12',
+                  verified: true,
                 ),
                 Messege(
                   contact: 'Tim',
@@ -177,6 +197,7 @@ class _HomePageState extends State<HomePage> {
                   read: true,
                   img: 'jordan',
                   time: '03:12',
+                  verified: false,
                 ),
                 Messege(
                   contact: 'James',
@@ -184,6 +205,7 @@ class _HomePageState extends State<HomePage> {
                   read: false,
                   img: 'rogers',
                   time: '04:12',
+                  verified: true,
                 ),
                 Messege(
                   contact: 'Rogers',
@@ -191,6 +213,7 @@ class _HomePageState extends State<HomePage> {
                   read: true,
                   img: 'tim',
                   time: '07:12',
+                  verified: true,
                 ),
                 Messege(
                   contact: 'Tommy',
@@ -198,6 +221,7 @@ class _HomePageState extends State<HomePage> {
                   read: false,
                   img: 'james',
                   time: '09:12',
+                  verified: false,
                 ),
               ],
             ),

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Messege extends StatelessWidget {
   final String contact;
   bool read = false;
   bool typing = false;
+  bool verified = false;
   final String img;
   final String time;
   Messege(
@@ -11,7 +13,9 @@ class Messege extends StatelessWidget {
       required this.contact,
       required this.read,
       required this.typing,
-      required this.img, required this.time})
+      required this.img,
+      required this.time,
+      required this.verified})
       : super(key: key);
 
   @override
@@ -20,12 +24,48 @@ class Messege extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: ListTile(
             leading: CircleAvatar(
-                radius: 25,
+                radius: 30,
                 backgroundImage: AssetImage('assets/images/' + img + '.jpg')),
-            trailing: Text(time),
-            title: Text(
-              contact,
-              style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+            trailing: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(time),
+                SizedBox(
+                  height: 5,
+                ),
+                (!read)
+                    ? Container(
+                        height: 15,
+                        width: 15,
+                        decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Center(
+                            child: Text(
+                          '1',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        )),
+                      )
+                    : Text('')
+              ],
+            ),
+            title: Row(
+              children: [
+                Text(
+                  contact + ' ',
+                  style: GoogleFonts.nunito(
+                      fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                verified
+                    ? Icon(
+                        Icons.verified,
+                        color: Colors.blue,
+                        size: 20,
+                      )
+                    : Text('')
+              ],
             ),
             subtitle: typing
                 ? Text(

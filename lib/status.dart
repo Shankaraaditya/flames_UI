@@ -4,7 +4,8 @@ class Status extends StatelessWidget {
   final String name;
   final String pic;
 
-  const Status({Key? key, required this.name, required this.pic}) : super(key: key);
+  const Status({Key? key, required this.name, required this.pic})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +20,32 @@ class Status extends StatelessWidget {
               color: Colors.grey[400],
               image: DecorationImage(
                   image: AssetImage(
-                    'assets/images/'+pic+'.jpg',
+                    'assets/images/' + pic + '.jpg',
                   ),
                   fit: BoxFit.cover)),
         ),
         Container(
           height: 20,
-          width: 60,
+          width: 70,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
             color: Colors.white,
           ),
-          child: Center(child: Text(name, style: TextStyle(fontWeight: FontWeight.bold),)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                name + ' ',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Icon(
+                Icons.verified,
+                size: 15,
+                color: Colors.blue,
+              )
+            ],
+          ),
         )
       ]),
     );
