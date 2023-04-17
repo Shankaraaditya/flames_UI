@@ -31,7 +31,7 @@ class Messege extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(time),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 (!read)
@@ -41,14 +41,14 @@ class Messege extends StatelessWidget {
                         decoration: BoxDecoration(
                             color: Colors.red,
                             borderRadius: BorderRadius.circular(10)),
-                        child: Center(
+                        child: const Center(
                             child: Text(
                           '1',
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),
                         )),
                       )
-                    : Text('')
+                    : const Text('')
               ],
             ),
             title: Row(
@@ -59,25 +59,25 @@ class Messege extends StatelessWidget {
                       fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 verified
-                    ? Icon(
+                    ? const Icon(
                         Icons.verified,
                         color: Colors.blue,
                         size: 20,
                       )
-                    : Text('')
+                    : const Text('')
               ],
             ),
             subtitle: typing
-                ? Text(
+                ? const Text(
                     'typing...',
                     style: TextStyle(color: Colors.red, fontSize: 16),
                   )
                 : ((read)
-                    ? Text(
+                    ? const Text(
                         'Hii',
                         style: TextStyle(fontSize: 16),
                       )
-                    : Text(
+                    : const Text(
                         'Hii',
                         style: TextStyle(
                             fontSize: 16,
